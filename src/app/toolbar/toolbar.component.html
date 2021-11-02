@@ -1,0 +1,15 @@
+<div>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Task Manager</span>
+      <span class="example-spacer"></span>
+      
+      <button mat-raised-button color="primary"(click)="openCreatComponent()">
+       Create Task
+      </button>
+    </mat-toolbar>
+    <app-create-task *ngIf="loadComponent"></app-create-task>
+</div>
+  

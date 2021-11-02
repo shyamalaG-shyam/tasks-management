@@ -1,0 +1,72 @@
+<div>
+    <div class="heading">
+      <h4>Drag the Task to update priority</h4>
+  
+      <ul class="priorities">
+        <li
+          cdkDropList
+          #highPrio="cdkDropList"
+          (cdkDropListDropped)="dropHigh($event)"
+        >
+          <mat-card class="high">High</mat-card>
+        </li>
+        <li
+          cdkDropList
+          #medPrio="cdkDropList"
+          (cdkDropListDropped)="dropMed($event)"
+        >
+          <mat-card class="medium">medium</mat-card>
+        </li>
+        <li
+          cdkDropList
+          #lowPrio="cdkDropList"
+          (cdkDropListDropped)="dropLow($event)"
+        >
+          <mat-card class="low">low</mat-card>
+        </li>
+      </ul>
+    </div>
+  
+    <div>
+      <ul
+      class="task-container"
+        cdkDropList
+        #taskList="cdkDropList"
+        cdkDropListSortingDisabled
+        [cdkDropListData]="tasks"
+        [cdkDropListConnectedTo]="[highPrio,medPrio,lowPrio]"
+      >
+        <li *ngFor="let task of tasks" cdkDrag>
+          <mat-card class="card">
+            <mat-card-title>{{ task.message }}</mat-card-title>
+            <br />
+            <mat-card-content class="car-content">
+              <p>Due date:{{ task.due_date }}</p>
+              <p>Assigned to:{{ task.assigned_to }}</p>
+              <p>priority:{{ task.priority }}</p>
+            </mat-card-content>
+            <mat-divider inset></mat-divider>
+            <mat-card-actions class="btns">
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="loadUpdate(task)"
+              >
+                update
+              </button>
+              <button
+                mat-raised-button
+                color="warn"
+                (click)="deleteTask(task.id)"
+              >
+                delete
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </li>
+      </ul>
+    </div>
+    <app-update-task *ngIf="isUpadate" [upTask]="updatingTask"></app-update-task>
+  </div>
+  <!-- <mat-paginator [length]="tasks.length"  [pageSize]="2" aria-label="Select page of users"></mat-paginator>      -->
+  

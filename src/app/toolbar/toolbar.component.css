@@ -1,0 +1,42 @@
+.example-spacer {
+    flex: 1 1 auto;
+}.search{
+    display: flex;
+    flex-direction: column;
+}
+.inp{
+    margin-left:1rem ;
+    border: none;
+    border-radius: 3px;
+    font-family: inherit;
+    color: inherit;
+    width: 12%;
+    height: 35px;
+    background-color: transparent;
+    border-bottom: 4px solid transparent;
+        
+}
+.inp ::placeholder{
+    color: rgb(22, 22, 22);
+}
+.inp:focus{
+    outline: none;
+    border-bottom: 4px solid white;
+    background-color: rgba(255, 255, 255, 0.384);
+
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.205);
+}
+.search-data{
+    width:12% ;
+}
+
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }

@@ -1,0 +1,29 @@
+<div class="backdrop" *ngIf="isBackDrop" (click)="setBackDrop()">
+</div>
+<div class="modal" *ngIf="isBackDrop">
+    <h3>Create Form</h3>
+<form (ngSubmit)="onSubmit()"  >
+    <div class='control-group'>
+        <div class='form-group'>
+          <label htmlFor='name'>Message</label>
+          <input type='text' name='message'[(ngModel)]="tasks.message" />
+        </div>
+        <div class='form-group'>
+          <label htmlFor='name'>Due date</label>
+          <input type='date' name='due_date'[(ngModel)]="tasks.due_date" />
+        </div>
+      
+      <div class='form-group'>
+        <label htmlFor='name'>Priority</label>
+        <input type='text' name='priority'[(ngModel)]="tasks.priority"  />
+      </div>
+      <div class='form-group'>
+        <label htmlFor='name'>Assigned to</label>
+        <input type='text' name='assigned_to'[(ngModel)]="tasks.assigned_to"  />
+      </div>
+      <div class='form-actions'>
+        <button type="submit">Submit</button>
+      </div>
+     </div>
+   </form>
+</div>

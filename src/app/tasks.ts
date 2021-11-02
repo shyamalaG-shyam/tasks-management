@@ -1,7 +1,3 @@
-import { DatePipe } from "@angular/common";
-
-
-// import {User} from './user'
 export class Tasks {
     taskid:string;
     message:string;

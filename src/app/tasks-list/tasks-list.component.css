@@ -1,0 +1,60 @@
+.heading{
+    display: flex;
+    flex-direction: row;
+}.heading h2{
+  flex: 3;
+}
+.priorities{
+  list-style: none;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.priorities li{
+  width: 85px;
+}
+.high{
+  background-color: #ff604d;
+  color: white;
+  font-weight: bold;
+}.medium{
+  background-color: #fdec4d;
+  color: white;
+  font-weight: bold;
+}.low{
+  background-color: #71f85f;
+  color: white;
+  font-weight: bold;
+}
+.task-container{
+  list-style: none;
+  width: 95%;
+  height: 80vh;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+
+.card {
+  width: 210px;
+  text-align: left;
+  position: relative;
+  vertical-align: top;
+  overflow: hidden;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 10px 30px;
+}
+

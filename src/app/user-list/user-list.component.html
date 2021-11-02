@@ -1,0 +1,17 @@
+<div>
+<div class="heading">
+    <h2>Users list</h2>
+</div>
+<div class="container">
+    <mat-list role="list">
+        <mat-card class="user-card" *ngFor="let user of users">
+        <mat-list-item role="listitem" >
+            <div class="user-lists">
+                <img src="{{user.picture}} " class="user-image"alt="user image" >
+                <h3 class="user-name">{{user.name}}</h3>
+            </div>
+        </mat-list-item>
+    </mat-card>
+    </mat-list>
+</div>
+</div>
