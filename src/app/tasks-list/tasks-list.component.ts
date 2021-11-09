@@ -22,9 +22,11 @@ export class TasksListComponent implements OnInit {
     this.getTasks()
   }
   private getTasks(){ 
-    this.tasksService.getTasksList().subscribe((data:any)=>{this.tasks=data.tasks;
+    this.tasksService.getTasksList().subscribe((data:any)=>{this.tasks=data.tasks.sort((a,b)=>a.priority-b.priority);
+  
        console.log(data.tasks)}) 
   }
+  // rows.sort((a,b)=>a.si_no-b.si_no).map((row)
   loadUpdate(updateTAsk){
     this.isUpadate=true;
     this.updatingTask=updateTAsk;
@@ -32,7 +34,7 @@ export class TasksListComponent implements OnInit {
   deleteTask(id){
     this.formData.append("taskid",id)
     this.tasksService.deleteTaskById(this.formData).subscribe(err=>{
-      alert(err.message)
+      alert("deleted : ")
       console.log(err)
       this.getTasks();
     });   
@@ -42,10 +44,11 @@ export class TasksListComponent implements OnInit {
     this.getTasks()})
   }
   dropHigh(event: CdkDragDrop<Tasks[]>) {
-   this.task=event.previousContainer.data[event.previousIndex]
-    this.formData.append("message",this.task.message)
-    this.formData.append("assigned_to",this.task.assigned_to)
-    this.formData.append("due_date",this.task.due_date)
+    console.log("high")
+  //  this.task=event.previousContainer.data[event.previousIndex]
+    this.formData.append("message",event.previousContainer.data[event.previousIndex].message)
+    this.formData.append("assigned_to",event.previousContainer.data[event.previousIndex].assigned_to)
+    this.formData.append("due_date",event.previousContainer.data[event.previousIndex].due_date)
     this.formData.append("priority","1")
     this.updatePriority();
   }
@@ -63,6 +66,6 @@ export class TasksListComponent implements OnInit {
     this.formData.append("assigned_to",this.task.assigned_to)
     this.formData.append("due_date",this.task.due_date)
     this.formData.append("priority","3")
-    // this.updatePriority();
+    this.updatePriority();
   }
 }
